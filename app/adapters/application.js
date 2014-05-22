@@ -1,3 +1,4 @@
 export default DS.RESTAdapter.extend({
-  namespace: 'api'
+  namespace: 'api',
+  host: window.ENV.host
 });
