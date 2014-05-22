@@ -1,6 +1,7 @@
 import { test, moduleFor } from 'ember-qunit';
 
 import Activities from 'appkit/routes/activities';
+import Activity from 'appkit/models/activity';
 
 moduleFor('route:activities', "Unit - ActivitiesRoute");
 
@@ -13,15 +14,7 @@ test("#model", function(){
 
   var store = {
     find: function() {
-      return [{
-          id: 0,
-          display_id: 'Activity1',
-          type: 'song',
-          display_name: 'On The Road Again',
-          hotttnesss: 54,
-          timestamp: 'Fri Dec 06 2013 01:05:53 GMT-0600 (CST)'
-        }
-      ];
+      return Activity.FIXTURES;
     }
   };
 
@@ -29,14 +22,6 @@ test("#model", function(){
 
   route.set('store', store);
 
-  deepEqual(route.model(), [{
-      id: 0,
-      display_id: 'Activity1',
-      type: 'song',
-      display_name: 'On The Road Again',
-      hotttnesss: 54,
-      timestamp: 'Fri Dec 06 2013 01:05:53 GMT-0600 (CST)'
-    }
-  ]);
+  deepEqual(route.model(), Activity.FIXTURES);
 
 });
